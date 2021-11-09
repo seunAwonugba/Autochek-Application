@@ -8,3 +8,8 @@ Technologies used include
 2. Android studio
 3. Navigation controller
 4. View binding
+5. retrofit service
+
+
+Android architectural pattern followed
+1. MVVM
