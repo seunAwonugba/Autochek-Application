@@ -1,12 +1,13 @@
 package com.example.autochekapplication
 
-import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * To make android classes use Hilt, we have to annotate it with @AndroidEntryPoint
+ */
 
+@AndroidEntryPoint
 class SavedFragment : Fragment(R.layout.fragment_saved) {
 
 }
