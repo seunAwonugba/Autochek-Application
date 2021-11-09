@@ -1,4 +1,4 @@
-package com.example.autochekapplication.dataclass
+package com.example.autochekapplication.dataclass.makelist
 
 data class MakeDataClass(
     val makeList: List<Make>,

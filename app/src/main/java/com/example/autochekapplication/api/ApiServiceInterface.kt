@@ -1,7 +1,9 @@
 package com.example.autochekapplication.api
 
+import com.example.autochekapplication.constants.Constants.CARS_END_POINT
 import com.example.autochekapplication.constants.Constants.MAKE_END_POINT
-import com.example.autochekapplication.dataclass.MakeDataClass
+import com.example.autochekapplication.dataclass.cars.CarsDataClass
+import com.example.autochekapplication.dataclass.makelist.MakeDataClass
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -13,4 +15,7 @@ interface ApiServiceInterface {
         @Query("popular")
         popular : String = "true"
     ) : Response<MakeDataClass>
+
+    @GET(CARS_END_POINT)
+    suspend fun getCars() : Response<CarsDataClass>
 }
