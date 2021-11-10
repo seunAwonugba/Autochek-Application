@@ -6,6 +6,9 @@ import com.example.autochekapplication.api.ApiServiceInterface
 import com.example.autochekapplication.constants.Constants.BASE_URL
 import com.example.autochekapplication.constants.Constants.DATABASE_NAME
 import com.example.autochekapplication.db.CarsDB
+import com.example.autochekapplication.db.CarsDao
+import com.example.autochekapplication.repository.MainRepository
+import com.example.autochekapplication.repository.TestRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -49,6 +52,13 @@ object ProjectModule {
     @Singleton
     @Provides
     fun provideCarsDao(carsDB: CarsDB) = carsDB.carsDao()
+
+    @Singleton
+    @Provides
+    fun provideRepository(
+        apiServiceInterface: ApiServiceInterface,
+        carDao: CarsDao
+    ) : TestRepository = MainRepository(apiServiceInterface, carDao)
     
 
 }

@@ -1,14 +1,24 @@
 package com.example.autochekapplication.adapter
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.example.autochekapplication.R
 import com.example.autochekapplication.dataclass.cars.Result
 
 class CarsAdapter : RecyclerView.Adapter<CarsAdapter.MyViewHolder>() {
-    inner class MyViewHolder(var carsListItem : View) : RecyclerView.ViewHolder(carsListItem) {}
+    inner class MyViewHolder(var carsListItem : View) : RecyclerView.ViewHolder(carsListItem) {
+        var title : TextView = carsListItem.findViewById(R.id.textViewId)
+        var condition : TextView = carsListItem.findViewById(R.id.sellingConditionTv)
+        var price : TextView = carsListItem.findViewById(R.id.priceTv)
+        var imageView : ImageView = carsListItem.findViewById(R.id.imageViewId)
+    }
 
     private val diffCallBack = object : DiffUtil.ItemCallback<Result>(){
         override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
@@ -28,14 +38,40 @@ class CarsAdapter : RecyclerView.Adapter<CarsAdapter.MyViewHolder>() {
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        TODO("Not yet implemented")
+        return MyViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.cars_list_item, parent, false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val currentCar = cars[position]
+
+        holder.imageView.load(currentCar.imageUrl){
+            crossfade(true)
+            crossfade(1000)
+        }
+
+        holder.title.text = currentCar.title
+        holder.condition.text = currentCar.sellingCondition
+        holder.price.text = currentCar.marketplacePrice.toString()
+
+        holder.itemView.setOnClickListener {
+            listItemClickListener?.let {
+                it(currentCar)
+            }
+        }
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return cars.size
+    }
+
+    //Implement onclick listeners
+    private var listItemClickListener : ((Result) -> Unit)? = null
+
+    fun setListItemClickListener(listener: (Result) -> Unit){
+        listItemClickListener = listener
     }
 }
