@@ -7,6 +7,8 @@ import androidx.room.PrimaryKey
     tableName = "cars_table"
 )
 data class Result(
+    @PrimaryKey(autoGenerate = true)
+    val roomId : Int? =null,
     val bodyTypeId: String?,
     val city: String?,
     val depositReceived: Boolean?,
@@ -15,7 +17,6 @@ data class Result(
     val hasFinancing: Boolean?,
     val hasThreeDImage: Boolean?,
     val hasWarranty: Boolean?,
-    @PrimaryKey
     val id: String?,
     val imageUrl: String?,
     val installment: Int?,

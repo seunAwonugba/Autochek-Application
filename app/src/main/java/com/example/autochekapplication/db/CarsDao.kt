@@ -1,14 +1,13 @@
 package com.example.autochekapplication.db
 
 import androidx.lifecycle.LiveData
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.autochekapplication.dataclass.cars.Result
 
-interface ProjectDBDao {
+@Dao
+interface CarsDao {
 
+    //insert and update
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(carsResult : Result)
 
