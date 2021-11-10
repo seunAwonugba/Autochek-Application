@@ -13,6 +13,9 @@ buildscript {
 
         //hilt-android-gradle-plugin
         classpath "com.google.dagger:hilt-android-gradle-plugin:2.40"
+
+        //add Safe Args to your project
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
     }
 }
 

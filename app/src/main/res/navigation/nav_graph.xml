@@ -22,6 +22,9 @@
         <argument
             android:name="passedDetailsArgs"
             app:argType="com.example.autochekapplication.dataclass.cars.Result" />
+        <action
+            android:id="@+id/action_detailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/savedFragment"

@@ -5,6 +5,7 @@
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.17291666666666666" />
         <entry key="app/src/main/res/drawable-anydpi/ic_add.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_back_arrow.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_bag.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_filter.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_star.xml" value="0.17395833333333333" />
@@ -15,11 +16,12 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/cars_list_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_details.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_details.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_saved.xml" value="0.1" />
         <entry key="app/src/main/res/layout/make_list_list_item.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/view_pager_layout.xml" value="0.1578125" />
         <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.1" />
       </map>
     </option>

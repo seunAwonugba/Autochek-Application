@@ -5,4 +5,5 @@ object Constants {
     const val MAKE_END_POINT = "make"
     const val CARS_END_POINT = "car/search"
     const val DATABASE_NAME = "cars_DB"
+    const val CARS_MEDIA_END_POINT = "car_media"
 }
