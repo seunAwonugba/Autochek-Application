@@ -49,6 +49,7 @@ class MakeAdapter : RecyclerView.Adapter<MakeAdapter.MyViewHolder>() {
         holder.brandImage.load(currentMake.imageUrl){
             crossfade(true)
             crossfade(1000)
+            placeholder(R.drawable.placeholderimage)
         }
 
         holder.brandName.text = currentMake.name

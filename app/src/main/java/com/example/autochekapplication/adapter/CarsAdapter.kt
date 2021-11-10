@@ -14,10 +14,11 @@ import com.example.autochekapplication.dataclass.cars.Result
 
 class CarsAdapter : RecyclerView.Adapter<CarsAdapter.MyViewHolder>() {
     inner class MyViewHolder(var carsListItem : View) : RecyclerView.ViewHolder(carsListItem) {
-        var title : TextView = carsListItem.findViewById(R.id.textViewId)
+        var title : TextView = carsListItem.findViewById(R.id.titleTv)
         var condition : TextView = carsListItem.findViewById(R.id.sellingConditionTv)
         var price : TextView = carsListItem.findViewById(R.id.priceTv)
-        var imageView : ImageView = carsListItem.findViewById(R.id.imageViewId)
+        var imageView : ImageView = carsListItem.findViewById(R.id.imageTv)
+        var rating : TextView = carsListItem.findViewById(R.id.ratingTV)
     }
 
     private val diffCallBack = object : DiffUtil.ItemCallback<Result>(){
@@ -51,11 +52,13 @@ class CarsAdapter : RecyclerView.Adapter<CarsAdapter.MyViewHolder>() {
         holder.imageView.load(currentCar.imageUrl){
             crossfade(true)
             crossfade(1000)
+            placeholder(R.drawable.placeholderimage)
         }
 
         holder.title.text = currentCar.title
         holder.condition.text = currentCar.sellingCondition
         holder.price.text = currentCar.marketplacePrice.toString()
+        holder.rating.text = currentCar.gradeScore?.toInt().toString()
 
         holder.itemView.setOnClickListener {
             listItemClickListener?.let {

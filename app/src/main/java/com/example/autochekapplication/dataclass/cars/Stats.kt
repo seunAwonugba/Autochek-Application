@@ -1,5 +1,9 @@
 package com.example.autochekapplication.dataclass.cars
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Stats(
     val appViewCount: Int?,
     val appViewerCount: Int?,
@@ -8,4 +12,4 @@ data class Stats(
     val testDriveCount: Int?,
     val webViewCount: Int?,
     val webViewerCount: Int?
-)
+) : Parcelable

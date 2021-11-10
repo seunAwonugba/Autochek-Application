@@ -1,8 +1,11 @@
 package com.example.autochekapplication.dataclass.cars
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(
     tableName = "cars_table"
 )
@@ -32,4 +35,4 @@ data class Result(
     val title: String?,
     val websiteUrl: String?,
     val year: Int?
-)
+) : Parcelable

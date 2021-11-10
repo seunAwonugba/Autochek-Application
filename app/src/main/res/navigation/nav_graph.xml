@@ -18,7 +18,11 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.autochekapplication.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="passedDetailsArgs"
+            app:argType="com.example.autochekapplication.dataclass.cars.Result" />
+    </fragment>
     <fragment
         android:id="@+id/savedFragment"
         android:name="com.example.autochekapplication.SavedFragment"
