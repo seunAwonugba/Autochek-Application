@@ -9,6 +9,7 @@ Technologies used include
 3. Navigation controller
 4. View binding
 5. retrofit service
+6. Room persistent library
 
 
 Android architectural pattern followed
