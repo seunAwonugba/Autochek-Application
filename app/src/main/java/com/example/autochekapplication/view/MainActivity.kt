@@ -1,10 +1,12 @@
-package com.example.autochekapplication
+package com.example.autochekapplication.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.autochekapplication.R
 import com.example.autochekapplication.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +39,26 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
 
-        val bottomNav = bottomNav.setupWithNavController(navController)
+        bottomNav.setupWithNavController(navController)
+
+        navHostFragment.navController.addOnDestinationChangedListener{_,destination,_ ->
+            when(destination.id){
+                R.id.detailsFragment -> hideBottomAppBar()
+                else -> showBottomAppBar()
+            }
+
+        }
+    }
+
+    private fun showBottomAppBar(){
+        binding.bottomAppBar.visibility = View.VISIBLE
+        binding.bottomNavId.visibility = View.VISIBLE
+        binding.floatingActionButton.visibility = View.VISIBLE
+    }
+
+    private fun hideBottomAppBar(){
+        binding.bottomAppBar.visibility = View.GONE
+        binding.bottomNavId.visibility = View.GONE
+        binding.floatingActionButton.visibility = View.GONE
     }
 }

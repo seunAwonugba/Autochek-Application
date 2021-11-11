@@ -1,9 +1,10 @@
-package com.example.autochekapplication
+package com.example.autochekapplication.view
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.autochekapplication.R
 import com.example.autochekapplication.databinding.FragmentChatBinding
 import com.example.autochekapplication.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint

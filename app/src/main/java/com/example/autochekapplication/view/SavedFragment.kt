@@ -1,10 +1,11 @@
-package com.example.autochekapplication
+package com.example.autochekapplication.view
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.autochekapplication.databinding.FragmentNotificationsBinding
+import com.example.autochekapplication.R
+import com.example.autochekapplication.databinding.FragmentSavedBinding
 import com.example.autochekapplication.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -13,15 +14,15 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 
 @AndroidEntryPoint
-class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
-    private var _binding: FragmentNotificationsBinding? = null
+class SavedFragment : Fragment(R.layout.fragment_saved) {
+    private var _binding: FragmentSavedBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel : MainViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentNotificationsBinding.bind(view)
+        _binding = FragmentSavedBinding.bind(view)
     }
 
     override fun onDestroy() {

@@ -1,4 +1,4 @@
-package com.example.autochekapplication
+package com.example.autochekapplication.view
 
 import android.os.Bundle
 import android.view.View
@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.autochekapplication.R
 import com.example.autochekapplication.adapter.CarsAdapter
 import com.example.autochekapplication.adapter.MakeAdapter
 import com.example.autochekapplication.databinding.FragmentHomeBinding
@@ -89,7 +90,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         //implement navigation to details page
         carsAdapter.setListItemClickListener {
-            val navDirection = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(it)
+            val navDirection =
+                HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
+                    it
+                )
             findNavController().navigate(navDirection)
         }
     }

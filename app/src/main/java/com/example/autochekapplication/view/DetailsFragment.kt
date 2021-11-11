@@ -1,4 +1,4 @@
-package com.example.autochekapplication
+package com.example.autochekapplication.view
 
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +8,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.example.autochekapplication.R
 import com.example.autochekapplication.adapter.ViewPagerAdapter
 import com.example.autochekapplication.databinding.FragmentDetailsBinding
 import com.example.autochekapplication.util.ApiCallErrorHandler
@@ -32,9 +34,20 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentDetailsBinding.bind(view)
 
+        //implement cars media view pager
         viewPager = binding.viewPagerId
+        viewPager.offscreenPageLimit = 2
+        viewPager.clipToPadding = false
+        viewPager.clipChildren = false
+        viewPager.setPadding(60,0,60,0)
 
+        val compositePageTransformer = CompositePageTransformer()
 
+        compositePageTransformer.addTransformer { page, position ->
+            page.scaleY = 1 - (0.25f * Math.abs(position))
+        }
+
+        viewPager.setPageTransformer(compositePageTransformer)
 
         //Implement back navigation
         binding.backArrow.setOnClickListener {
