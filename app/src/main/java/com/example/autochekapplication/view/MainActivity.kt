@@ -41,24 +41,25 @@ class MainActivity : AppCompatActivity() {
 
         bottomNav.setupWithNavController(navController)
 
-        navHostFragment.navController.addOnDestinationChangedListener{_,destination,_ ->
-            when(destination.id){
-                R.id.detailsFragment -> hideBottomAppBar()
-                else -> showBottomAppBar()
-            }
-
-        }
+//        navHostFragment.navController.addOnDestinationChangedListener{_,destination,_ ->
+//            when(destination.id){
+//                R.id.detailsFragment -> hideBottomAppBar()
+//                else -> showBottomAppBar()
+//            }
+//
+//        }
     }
 
-    private fun showBottomAppBar(){
-        binding.bottomAppBar.visibility = View.VISIBLE
-        binding.bottomNavId.visibility = View.VISIBLE
-        binding.floatingActionButton.visibility = View.VISIBLE
-    }
-
-    private fun hideBottomAppBar(){
-        binding.bottomAppBar.visibility = View.GONE
-        binding.bottomNavId.visibility = View.GONE
-        binding.floatingActionButton.visibility = View.GONE
-    }
+//    private fun showBottomAppBar(){
+//        binding.bottomAppBar.visibility = View.VISIBLE
+//        binding.bottomNavId.visibility = View.VISIBLE
+//        binding.floatingActionButton.visibility = View.VISIBLE
+//
+//    }
+//
+//    private fun hideBottomAppBar(){
+//        binding.bottomAppBar.visibility = View.GONE
+//        binding.bottomNavId.visibility = View.GONE
+//        binding.floatingActionButton.visibility = View.GONE
+//    }
 }

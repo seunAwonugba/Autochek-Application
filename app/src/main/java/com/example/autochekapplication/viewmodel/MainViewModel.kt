@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.autochekapplication.dataclass.cardetails.CarDetailsDataClass
 import com.example.autochekapplication.dataclass.carmedia.CarMediaDataClass
 import com.example.autochekapplication.dataclass.cars.CarsDataClass
 import com.example.autochekapplication.dataclass.makelist.MakeDataClass
@@ -26,6 +27,9 @@ class MainViewModel @Inject constructor(
 
     private val _carMediaResponse : MutableLiveData<ApiCallErrorHandler<CarMediaDataClass>> = MutableLiveData()
     var carMediaResponse : LiveData<ApiCallErrorHandler<CarMediaDataClass>> = _carMediaResponse
+
+    private val _carDetailsResponse : MutableLiveData<ApiCallErrorHandler<CarDetailsDataClass>> = MutableLiveData()
+    var carDetailsResponse : LiveData<ApiCallErrorHandler<CarDetailsDataClass>> = _carDetailsResponse
 
     init {
         getMakeList("true")
@@ -52,6 +56,14 @@ class MainViewModel @Inject constructor(
             _carMediaResponse.postValue(ApiCallErrorHandler.Loading())
             val carMediaResponseInCoroutine = repository.getCarMedia(carId)
             _carMediaResponse.postValue(carMediaResponseInCoroutine)
+        }
+    }
+
+    fun getCarDetails(carId : String){
+        viewModelScope.launch {
+            _carDetailsResponse.postValue(ApiCallErrorHandler.Loading())
+            val carDetailsResponseInCoroutine = repository.getCarDetails(carId)
+            _carDetailsResponse.postValue(carDetailsResponseInCoroutine)
         }
     }
 

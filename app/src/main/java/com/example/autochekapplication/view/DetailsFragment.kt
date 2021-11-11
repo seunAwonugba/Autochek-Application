@@ -92,6 +92,24 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
             })
         }
 
+        //car details observer
+        if (carId != null) {
+            viewModel.getCarDetails(carId)
+            viewModel.carDetailsResponse.observe(viewLifecycleOwner, Observer { response->
+                when(response){
+                    is ApiCallErrorHandler.Success ->{
+                        binding.MileageId.text = response.data?.mileage.toString()
+                        binding.engineTypeId.text = response.data?.engineType
+                        binding.fuelTypeId.text = response.data?.fuelType
+                        binding.wheelTypeId.text = response.data?.model?.wheelType
+                        binding.interiorColorId.text = response.data?.interiorColor
+                        binding.TransmissionId.text = response.data?.transmission
+                    }
+                }
+            })
+        }
+
+
     }
 
     override fun onDestroy() {

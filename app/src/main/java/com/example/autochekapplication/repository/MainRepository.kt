@@ -1,6 +1,7 @@
 package com.example.autochekapplication.repository
 
 import com.example.autochekapplication.api.ApiServiceInterface
+import com.example.autochekapplication.dataclass.cardetails.CarDetailsDataClass
 import com.example.autochekapplication.dataclass.carmedia.CarMediaDataClass
 import com.example.autochekapplication.dataclass.cars.CarsDataClass
 import com.example.autochekapplication.dataclass.makelist.MakeDataClass
@@ -55,5 +56,21 @@ class MainRepository @Inject constructor(
         } catch (e: Exception){
             ApiCallErrorHandler.Error(e.message ?: " An Error Occurred fetching data from the API ")
         }
+    }
+
+    override suspend fun getCarDetails(carId: String): ApiCallErrorHandler<CarDetailsDataClass> {
+        return try {
+            val receivedApiResponse = apiInterface.getCarDetails(carId)
+            val receivedApiResult = receivedApiResponse.body()
+
+            if (receivedApiResponse.isSuccessful && receivedApiResult != null) {
+                ApiCallErrorHandler.Success(receivedApiResult)
+            } else {
+                ApiCallErrorHandler.Error(receivedApiResponse.message())
+            }
+        } catch (e: Exception){
+            ApiCallErrorHandler.Error(e.message ?: " An Error Occurred fetching data from the API ")
+        }
+
     }
 }
