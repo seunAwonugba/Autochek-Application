@@ -116,6 +116,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                         binding.vinId.text = response.data?.vin
                         binding.locationId.text = response.data?.state
                         binding.inspectedId.text = response.data?.inspectorDetails?.workshopName
+                        binding.totalInspectionId.text =  "Total inspection: ${response.data?.inspectorDetails?.totalInspection.toString()}"
                     }
 
                     is ApiCallErrorHandler.Error -> {
