@@ -57,8 +57,10 @@ class CarsAdapter : RecyclerView.Adapter<CarsAdapter.MyViewHolder>() {
 
         holder.title.text = currentCar.title
         holder.condition.text = currentCar.sellingCondition
-        holder.price.text = "₦${currentCar.marketplacePrice.toString()}.00"
+        val formattedNumber = String.format("%,d", currentCar.marketplacePrice)
+        holder.price.text = "₦${formattedNumber}.00"
         holder.rating.text = currentCar.gradeScore?.toInt().toString()
+
 
         holder.itemView.setOnClickListener {
             listItemClickListener?.let {

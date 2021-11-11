@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="custom_dark">#0f1327</color>
     <color name="custom_gold">#ffcc66</color>
+    <color name="custom_blue">#989acf</color>
 </resources>
